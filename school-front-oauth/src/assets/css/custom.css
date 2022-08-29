@@ -1,0 +1,11 @@
+.B1 {
+    width: 4px;
+    height: auto;
+    display: inline-block;
+}
+
+.blank_row
+{
+    height: 10px !important; /* overwrites any other rules */
+    background-color: #FFFFFF;
+}

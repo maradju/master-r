@@ -1,0 +1,58 @@
+<!-- PRETRAGA -->
+<div class="container py-2">
+    <label class="font-weight-bold text-dark text-2">Pronadji studenta</label>
+    <div class="form-row">
+        <div class="col-sm-5">
+            <input #myInput type="text" class="form-control" name="name" (keyup.enter) = "doSearch(myInput.value)">
+        </div>
+        <div class="col-sm-5">
+            <button type="button" class="btn btn-primary mb-1" (click) = "doSearch(myInput.value)">Pretrazi</button>
+        </div>
+    </div>
+</div>
+<!-- LISTA -->
+<div role="main" class="main">   
+    <!-- SPISAK STUDENATA -->
+    <div class="container py-2">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col pb-3">
+                        <table class="table table-hover">
+                                <tr>
+                                    <th>
+                                        Spisak studenata
+                                    </th>
+                                </tr>
+                            <tbody *ngFor="let tempStudent of students">
+                                <tr routerLink = "/students/{{ tempStudent.id }}">
+                                    <th >
+                                        <a>{{tempStudent.firstName}} {{tempStudent.lastName}}</a>
+                                    </th>
+                                    <th >
+                                        <a>{{tempStudent.email}}</a>
+                                    </th>
+                                    <th >
+                                        <a>{{tempStudent.mobile}}</a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- if students empty then display a message-->
+        <div *ngIf="students?.length == 0">
+            No students found.
+        </div>
+    </div>
+    <!-- ADD BUTTON -->
+    <div class="container py-2">   
+        <div class="col-sm-9">
+            <button type="button" class="btn btn-primary mb-2" routerLink = "/students/add">Dodaj</button>                 
+        </div>              
+    </div>
+    <!-- PAGINACIJA -->
+</div>
+

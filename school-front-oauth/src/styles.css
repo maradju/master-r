@@ -1,0 +1,25 @@
+/* Vendor CSS */
+@import 'assets/css/vendor/bootstrap/css/bootstrap.min.css';
+@import 'assets/css/vendor/fontawesome-free/css/all.min.css';
+@import 'assets/css/vendor/animate/animate.min.css';
+@import 'assets/css/vendor/simple-line-icons/css/simple-line-icons.min.css';
+@import 'assets/css/vendor/owl.carousel/assets/owl.carousel.min.css';
+@import 'assets/css/vendor/owl.carousel/assets/owl.theme.default.min.css';
+@import 'assets/css/vendor/magnific-popup/magnific-popup.min.css';
+
+/* Current Page CSS*/
+
+@import 'assets/css/vendor/rs-plugin/css/settings.css';
+@import 'assets/css/vendor/rs-plugin/css/settings.css';
+@import 'assets/css/vendor/rs-plugin/css/layers.css';
+@import 'assets/css/vendor/rs-plugin/css/navigation.css';
+@import 'assets/css/vendor/circle-flip-slideshow/css/component.css';
+
+/* Theme CSS */
+@import 'assets/css/theme.css';
+@import 'assets/css/theme-elements.css';
+@import 'assets/css/theme-blog.css';
+@import 'assets/css/theme-shop.css';
+
+/* Skin CSS */
+@import 'assets/css/skins/default.css';

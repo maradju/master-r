@@ -1,0 +1,159 @@
+<section class="page-header page-header-classic">
+    <div class="container">
+        <div class="row">
+            <div class="col p-static">
+                <h1 data-title-border>{{ student.firstName }} {{ student.lastName }}</h1>
+            </div>
+            <div>
+                <a routerLink="/students" class="mt-5"><i class="icon-close icon-4x" style="font-size: 2em;"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-2">
+
+    <div class="row">
+        <div class="col-lg-3 mt-4 mt-lg-0">
+       <!-- SLIKA -->
+            <div class="d-flex justify-content-center mb-4">
+                <div class="profile-image-outer-container">
+                    <div class="profile-image-inner-container bg-color-primary">
+                        <img src="{{ student.imageUrl }}">
+
+                    </div>
+                    <!-- <input type="file" id="file" class="profile-image-input"> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+
+            <div class="overflow-hidden mb-1">
+                <h2 class="font-weight-normal text-7 mb-0 "> Detalji studenta </h2>
+            </div>
+            <!--   VIEW MODE  -->  
+            <form role="form" [formGroup]= "checkoutFormGroup" class="needs-validation">
+            <div *ngIf="isViewMode">
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Ime</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.firstName }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Prezime</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.firstName }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Ime jednog roditelja</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.parentName }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Broj telefona</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.mobile }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Email adresa</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.email }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Adresa</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.address }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Pol</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.gender }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 required">Godina rodjenja</label>
+                    <div class="col-lg-3">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2">{{ student.yearOfBirth }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-6">                       
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <div class = "B1"><input type="submit" value="Obrisi"  (click)="onDelete()"  class="btn btn-primary btn-modern float-right" data-loading-text="Loading..."></div>
+                        <div class="space"></div>
+                        <div class = "B1"><input type="submit" value="Izmeni" (click)="changeToAddMode()" class="btn btn-primary btn-modern float-left" data-loading-text="Loading..."></div>
+                    </div>
+                </div>
+            </div>
+                 <!--   EDIT MODE  -->
+            <div *ngIf="!isViewMode">
+                <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">First name</label>
+                        <div class="col-lg-3">
+                            <input class="form-control" value="{{ student.firstName }}" formControlName="firstName" required type="text" >
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Last name</label>
+                        <div class="col-lg-3">
+                            <input class="form-control" formControlName="lastName" required type="text" value="{{ student.lastName }}">
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Ime jednog roditelja</label>
+                        <div class="col-lg-3">
+                            <input class="form-control" formControlName="parentName" required type="text" value="{{ student.parentName }}">
+                        </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Broj telefona</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" formControlName="mobile" required type="text" value="{{ student.mobile }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Email adresa</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" formControlName="email" required type="text" value="{{ student.email }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Adresa</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" formControlName="address" required type="text" value="{{ student.address }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Pol</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" formControlName="gender" required type="text" value="{{ student.gender }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-3 ">Godina rodjenja</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" formControlName="yearOfBirth" required type="text" value="{{ student.yearOfBirth }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-9">
+                            
+                    </div>
+                    <div class="form-group col-lg-3">
+                     <input type="submit" value="Save" (click) ="saveAndChangeToViewMode()" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,99 @@
+<section class="page-header page-header-classic">
+    <div class="container">
+        <div class="row">
+            <div class="col p-static">
+                <h1 data-title-border>Dodaj novog studenta</h1>
+            </div>
+            <div>
+                <a routerLink="/students" class="mt-5"><i class="icon-close icon-4x" style="font-size: 2em;"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-2">
+
+    <div class="row">
+        <div class="col-lg-3 mt-4 mt-lg-0">
+
+            <div class="d-flex justify-content-center mb-4">
+                <div class="profile-image-outer-container">
+                    <div class="profile-image-inner-container bg-color-primary">
+                        <img src="img/avatars/avatar.jpg">
+                        <span class="profile-image-button bg-color-dark">
+                            <i class="fas fa-camera text-light"></i>
+                        </span>
+                    </div>
+                    <input type="file" id="file" class="profile-image-input">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+
+            <div class="overflow-hidden mb-1">
+            </div>
+
+            <form [formGroup]= "checkoutFormGroup">
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">First name</label>
+                    <div class="col-lg-9">
+                        <input formControlName="firstName" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Last name</label>
+                    <div class="col-lg-9">
+                        <input formControlName="lastName" class="form-control" required type="email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Parent name</label>
+                    <div class="col-lg-9">
+                        <input formControlName="parentName" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Broj telefona</label>
+                    <div class="col-lg-9">
+                        <input formControlName="mobile" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Email</label>
+                    <div class="col-lg-9">
+                        <input formControlName="email" class="form-control" required type="email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Adresa</label>
+                    <div class="col-lg-9">
+                        <input formControlName="address" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Pol</label>
+                    <div class="col-lg-9">
+                        <input formControlName="gender" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 ">Godina rodjenja</label>
+                    <div class="col-lg-9">
+                        <input formControlName="yearOfBirth" class="form-control" required type="text">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-9">
+                        
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <input type="submit" (click)="onSubmit()" value="Save" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>

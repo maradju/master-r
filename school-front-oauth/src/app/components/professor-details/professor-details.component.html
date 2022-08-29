@@ -1,0 +1,103 @@
+<section class="page-header page-header-classic">
+    <div class="container">
+        <div class="row">
+            <div class="col p-static">
+                <h1 data-title-border>User Profile</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-2">
+
+    <div class="row">
+        <div class="col-lg-3 mt-4 mt-lg-0">
+       <!-- SLIKA -->
+            <div class="d-flex justify-content-center mb-4">
+                <div class="profile-image-outer-container">
+                    <div class="profile-image-inner-container bg-color-primary">
+                        <img src="img/avatars/avatar.jpg">
+                        <span class="profile-image-button bg-color-dark">
+                            <i class="fas fa-camera text-light"></i>
+                        </span>
+                    </div>
+                    <input type="file" id="file" class="profile-image-input">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-9">
+
+            <div class="overflow-hidden mb-1">
+                <h2 class="font-weight-normal text-7 mb-0"><strong class="font-weight-extra-bold">My</strong> Profile</h2>
+                <a><i class="icon-close icons"></i><span class="name">close</span></a>
+            </div>
+            <div class="overflow-hidden mb-4 pb-3">
+                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <!--   VIEW MODE  -->  
+            <form role="form" [formGroup]= "checkoutFormGroup" class="needs-validation">
+            <div *ngIf="isViewMode">
+                <div class="form-group row">
+                    <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2 required">Ime</label>
+                    <div class="col-lg-2">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-1">{{ professor.firstName }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Prezime</label>
+                    <div class="col-lg-9">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-1">{{ professor.lastName }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2 required">Ime jednog roditelja</label>
+                    <div class="col-lg-4">
+                        <label class="col-lg-2 text-dark col-form-label form-control-label text-1">{{ professor.about }}</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-9">
+                        
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <input type="submit" value="Obrisi" (click)="onDelete()" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+                        <input type="submit" value="Izmeni" (click)="changeToAddMode()" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </div>
+                 <!--   EDIT MODE  -->
+            <div *ngIf="!isViewMode">
+                <div class="form-group row">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2 required">First name</label>
+                        <div class="col-lg-2">
+                            <input class="form-control" value="{{ professor.firstName }}" formControlName="firstName" required type="text" >
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-lg-3 font-weight-bold text-dark col-form-label form-control-label text-2 required">Last name</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" formControlName="lastName" required type="text" value="{{ professor.lastName }}">
+                        </div>
+                </div>
+                <div class="form-group row">
+                        <label class="col-lg-2 font-weight-bold text-dark col-form-label form-control-label text-2 required">Email</label>
+                        <div class="col-lg-4">
+                            <input class="form-control" formControlName="about" required type="text" value="{{ professor.about }}">
+                        </div>
+                </div>
+                <div class="form-group row">
+                    <div class="form-group col-lg-9">
+                            
+                    </div>
+                    <div class="form-group col-lg-3">
+                     <input type="submit" value="Save" (click) ="saveAndChangeToViewMode()" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+                    </div>
+                </div>
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<a routerLink="/professors" class="mt-5">Back to Professor List</a>

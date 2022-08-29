@@ -1,0 +1,57 @@
+<!-- PRETRAGA -->
+<div class="container py-2">
+    <label class="font-weight-bold text-dark text-2">Pretrazi course</label>
+    <div class="form-row">
+        <div class="col-sm-5">
+            <input #myInput type="text" class="form-control" name="name" (keyup.enter) = "doSearch(myInput.value)">
+        </div>
+        <div class="col-sm-5">
+            <button type="button" class="btn btn-primary mb-1" (click) = "doSearch(myInput.value)">Pretrazi</button>
+        </div>
+    </div>
+</div>
+
+<!-- LISTA -->
+<div role="main" class="main">   
+     <div class="container py-5">
+    </div>
+    <!-- SPISAK STUDENATA -->
+    <div class="container py-2">
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col pb-3">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        First Name
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let tempCourse of courses">
+                                <tr >
+                                    <th >
+                                        <a routerLink = "/courses/{{ tempCourse.id }}">{{tempCourse.name}}</a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- if courses empty then display a message-->
+        <div *ngIf="courses?.length == 0">
+            No courses found.
+        </div>
+    </div>
+    <!-- DODAJ DUGMICE ZA DODAJ I OBRISI -->
+    <div class="container py-2">   
+        <div class="col-sm-9">
+            <button type="button" class="btn btn-primary mb-2" routerLink = "/courses/add">Dodaj</button>                 
+        </div>              
+    </div>
+    <!-- PAGINACIJA -->
+</div>
+

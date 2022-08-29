@@ -1,0 +1,11 @@
+    <div class="container py-2">
+        <label class="font-weight-bold text-dark text-2">Pretrazi studente</label>
+        <div class="form-row">
+            <div class="col-sm-5">
+                <input #myInput type="text" class="form-control" name="name" (keyup.enter) = "doSearch(myInput.value)">
+            </div>
+            <div class="col-sm-5">
+                <button type="button" class="btn btn-primary mb-1" (click) = "doSearch(myInput.value)">Pretrazi</button>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,55 @@
+<header id="header" class="side-header d-flex">
+    <div class="header-body">
+        <div class="header-container container d-flex "> 
+            <div class="header-column flex-row flex-lg-column justify-content-left ">
+                <div class="header-row header-row-side-header flex-row pb-lg-5">
+                        <a href="index.html">
+                            <img alt="Logo" width="300" height="150" src="../assets/img/SchoolLogo.jpg">
+                        </a>
+                    <div class="header-nav header-nav-links header-nav-links-side-header header-nav-links-vertical header-nav-links-vertical-columns align-self-center">
+                        <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders">
+                            <nav class="collapse">
+                                <ul class="nav nav-pills" id="mainNav">
+                                    <li>
+                                        <a class="nav-link active" href="students">
+                                            Studenti
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="professors">
+                                            Profesori
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="courses">
+                                            Kursevi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="courses">
+                                            Moj Nalog
+                                        </a>
+                                    </li>
+                                    <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active">
+                                        <a class="nav-link" (click)="login()">
+                                            login
+                                        </a>
+                                    </li>
+                                    <li *ngIf="user.authStatus!='AUTH'" routerLinkActive="active">
+                                        <a class="nav-link" (click)="logout()">
+                                            logut
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
